@@ -1,7 +1,17 @@
-import Image from "next/image";
 
-export default function Home() {
+const Home = async () => {
+
+    const slug = "Anubis"
+    const res = await fetch(`http://localhost:3000/api/items/${slug}`);
+    const data = await res.text();
+
   return (
-      <p className="flex-1 bg-gradient-to-l from-yellow-900 to-gray-400 text-transparent bg-clip-text">Mon app</p>
+      <div>
+        <p className="flex-1 bg-gradient-to-l from-gray-900 to-gray-400 text-transparent bg-clip-text">Mon app</p>
+          {/*<Button />*/}
+          <h1>{data}</h1>
+      </div>
   );
 }
+
+export default Home;
